@@ -547,115 +547,7 @@ footer p {
 }
 
 
-/* PC/모바일 공통: 기본적으로 팝업 요소 숨김 */
-.lightbox,
-.modal {
-  display: none;
-}
-
-.lightbox.active {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(20, 18, 17, 0.92);
-}
-
-.lightbox img {
-  max-width: 100%;
-  max-height: 86vh;
-  object-fit: contain;
-}
-
-.lightbox-close,
-.lightbox-prev,
-.lightbox-next {
-  position: absolute;
-  border: 0;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
-}
-
-.lightbox-close {
-  top: 18px;
-  right: 20px;
-  font-size: 34px;
-}
-
-.lightbox-prev,
-.lightbox-next {
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 50px;
-}
-
-.lightbox-prev {
-  left: 16px;
-}
-
-.lightbox-next {
-  right: 16px;
-}
-
-.modal.active {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  display: block;
-}
-
-.modal-dim {
-  position: absolute;
-  inset: 0;
-  background: rgba(20, 18, 17, 0.55);
-}
-
-.modal-content {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: min(430px, 100%);
-  padding: 32px 24px 36px;
-  border-radius: 24px 24px 0 0;
-  background: #fffaf6;
-  transform: translateX(-50%);
-  text-align: center;
-}
-
-.modal-close {
-  position: absolute;
-  top: 14px;
-  right: 18px;
-  border: 0;
-  background: transparent;
-  color: #9a8178;@media (min-width: 768px) {
-  body {
-    background: #e8ded8;
-    padding: 40px 0;
-  }
-
-  .invitation {
-    max-width: 430px;
-    border-radius: 28px;
-  }
-
-  .hero-image {
-    height: 620px;
-  }
-
-  .map-preview img {
-    max-height: 360px;
-    object-fit: contain;
-    background: #fff;
-  }
-}
-  font-size: 28px;
-  cursor: pointer;
-}
-
+/* Map image button */
 .map-image-button {
   display: block;
   width: 100%;
@@ -670,6 +562,7 @@ footer p {
   display: block;
 }
 
+/* Map mode in lightbox */
 .lightbox.map-mode .lightbox-prev,
 .lightbox.map-mode .lightbox-next {
   display: none;
@@ -680,7 +573,35 @@ footer p {
   max-height: 88vh;
 }
 
-/* 긴급 복구: 스크롤 애니메이션 오류가 나도 모든 섹션 보이게 하기 */
+/* Desktop layout */
+@media (min-width: 768px) {
+  body {
+    background: #e8ded8;
+    padding: 40px 0;
+  }
+
+  .invitation {
+    max-width: 430px;
+    border-radius: 28px;
+  }
+
+  .hero-image {
+    height: 620px;
+  }
+
+  .map-preview {
+    background: #fff;
+    border: 1px solid var(--line);
+  }
+
+  .map-preview img {
+    max-height: 360px;
+    object-fit: contain;
+    background: #fff;
+  }
+}
+
+/* Temporary safe mode: reveal sections without JS dependency */
 .reveal {
   opacity: 1 !important;
   transform: none !important;
