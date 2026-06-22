@@ -679,3 +679,14 @@ footer p {
   max-width: 94%;
   max-height: 88vh;
 }
+
+/* 긴급 복구: 스크롤 애니메이션 오류가 나도 모든 섹션 보이게 하기 */
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.reveal.visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
