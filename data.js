@@ -23,8 +23,8 @@ const weddingData = {
   venueAddress: "서울 마포구 양화로 87",
 
   tmapLink: "https://www.tmap.co.kr/",
-  kakaoMapLink: "https://map.kakao.com/",
-  naverMapLink: "https://map.naver.com/",
+  kakaoMapLink: "https://place.map.kakao.com/803348028",
+  naverMapLink: "https://naver.me/xFLuQhhM",
 
   subwayInfo: "2호선, 6호선 합정역 하차 · 2번 출구 도보 4분",
   busInfo: "서교동/우리은행서교동지점/합정역 하차",
