@@ -4,80 +4,172 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>우리 결혼합니다</title>
+  <title>민석 · 이화 결혼합니다</title>
 
-  <meta property="og:title" content="우리 결혼합니다" />
+  <meta property="og:title" content="민석 · 이화 결혼합니다" />
   <meta property="og:description" content="소중한 분들을 초대합니다." />
   <meta property="og:image" content="./images/main.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <main class="invitation">
+    <!-- 1. 메인 -->
     <section class="hero">
       <div class="hero-image">
         <img src="./images/main.jpg" alt="웨딩 메인 사진" />
+        <div class="hero-script">We're getting Married!</div>
       </div>
 
       <div class="hero-text">
-        <p class="eyebrow">We are getting married</p>
+        <p class="eyebrow">Wedding Invitation</p>
         <h1>
-          <span id="groomName">신랑</span>
+          <span id="groomName">민석</span>
           <span class="heart">♥</span>
-          <span id="brideName">신부</span>
+          <span id="brideName">이화</span>
         </h1>
-        <p id="weddingDateText">2026.00.00 SAT 00:00</p>
+        <p id="weddingDateText">2027.03.13 SAT 15:00</p>
       </div>
     </section>
 
-    <section class="message">
+    <!-- 2. 초대 문구 -->
+    <section class="message reveal">
+      <p class="section-label">INVITATION</p>
       <h2>초대합니다</h2>
-      <p id="invitationMessage">
+      <p id="invitationMessage" class="message-text">
         서로의 가장 좋은 친구가 되어<br />
         평생을 함께 걸어가려 합니다.<br />
         소중한 걸음으로 축복해 주세요.
       </p>
     </section>
 
-    <section class="info">
-      <h2>예식 안내</h2>
-      <p id="weddingDate">2026년 00월 00일 토요일 오후 00시</p>
-      <p id="venueName">예식장명</p>
-      <p id="venueAddress">예식장 주소</p>
+    <!-- 3. 신랑 신부 소개 -->
+    <section class="family reveal">
+      <p class="section-label">BRIDE & GROOM</p>
+
+      <div class="family-line">
+        <span id="groomParents">○○○ · ○○○</span>의 아들
+        <strong id="groomFullName">민석</strong>
+      </div>
+
+      <div class="family-line">
+        <span id="brideParents">○○○ · ○○○</span>의 딸
+        <strong id="brideFullName">이화</strong>
+      </div>
+
+      <button class="outline-button" type="button" onclick="openContactModal()">
+        혼주에게 연락하기
+      </button>
     </section>
 
-    <section class="buttons">
-      <a id="kakaoMapLink" href="#" target="_blank" rel="noopener">카카오맵</a>
-      <a id="naverMapLink" href="#" target="_blank" rel="noopener">네이버지도</a>
+    <!-- 4. 달력 -->
+    <section class="calendar-section reveal">
+      <p class="section-label">WEDDING DAY</p>
+      <h2 id="calendarTitle">2027년 3월</h2>
+
+      <div class="calendar" id="calendar"></div>
+
+      <p class="wedding-time" id="weddingTimeText">
+        2027년 3월 13일 토요일 오후 3시
+      </p>
     </section>
 
-    <section class="account">
+    <!-- 5. 갤러리 -->
+    <section class="gallery-section reveal">
+      <p class="section-label">GALLERY</p>
+      <h2>갤러리</h2>
+
+      <div class="gallery-grid" id="galleryGrid"></div>
+
+      <button class="more-button" type="button" id="galleryMoreButton">
+        더보기 <span>⌄</span>
+      </button>
+    </section>
+
+    <!-- 6. 오시는 길 -->
+    <section class="location reveal">
+      <p class="section-label">LOCATION</p>
+      <h2>오시는 길</h2>
+
+      <div class="venue-card">
+        <h3 id="venueName">웨딩 시그니처</h3>
+        <p id="venueHall">○○○홀</p>
+        <p id="venueAddress">서울 마포구 양화로 87</p>
+      </div>
+
+      <div class="map-preview">
+        <img src="./images/map.png" alt="웨딩홀 약도" />
+      </div>
+
+      <div class="map-buttons">
+        <a id="tmapLink" href="#" target="_blank" rel="noopener">티맵</a>
+        <a id="kakaoMapLink" href="#" target="_blank" rel="noopener">카카오맵</a>
+        <a id="naverMapLink" href="#" target="_blank" rel="noopener">네이버지도</a>
+      </div>
+
+      <div class="traffic-info">
+        <h3>교통 안내</h3>
+        <p id="subwayInfo">합정역 2번 출구 도보 4분</p>
+        <p id="busInfo">서교동/우리은행서교동지점/합정역 하차</p>
+
+        <h3>주차 안내</h3>
+        <p class="parking-highlight" id="parkingInfo">
+          내방하시는 차량은 건물 정문에서 주차 안내를 받으시기 바랍니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- 7. 마음 전하실 곳 -->
+    <section class="account reveal">
+      <p class="section-label">ACCOUNT</p>
       <h2>마음 전하실 곳</h2>
 
-      <div class="account-card">
-        <p>신랑 측</p>
-        <strong id="groomAccount">은행명 000-0000-0000</strong>
-        <button type="button" onclick="copyText('groomAccount')">복사</button>
+      <p class="account-intro">
+        멀리서도 축하의 마음을 전하고 싶으신 분들을 위해<br />
+        계좌번호를 안내드립니다.<br />
+        소중한 축하를 보내주셔서 감사드리며<br />
+        따뜻한 마음에 깊이 감사드립니다.
+      </p>
+
+      <div class="account-group">
+        <h3>신랑 측</h3>
+        <div id="groomAccounts"></div>
       </div>
 
-      <div class="account-card">
-        <p>신부 측</p>
-        <strong id="brideAccount">은행명 000-0000-0000</strong>
-        <button type="button" onclick="copyText('brideAccount')">복사</button>
+      <div class="account-group">
+        <h3>신부 측</h3>
+        <div id="brideAccounts"></div>
       </div>
     </section>
 
-    <section class="rsvp">
-      <h2>참석 여부 전달</h2>
-      <p>참석 가능 여부를 알려주시면 준비에 큰 도움이 됩니다.</p>
-      <a id="rsvpLink" href="#" target="_blank" rel="noopener">참석 여부 남기기</a>
-    </section>
-
+    <!-- 8. Footer -->
     <footer>
-      <p>Thank you</p>
+      <p>Copyright © 2027 Minseok & Ehwa. All rights reserved.</p>
     </footer>
   </main>
+
+  <!-- 갤러리 크게 보기 -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" type="button" onclick="closeLightbox()">×</button>
+    <button class="lightbox-prev" type="button" onclick="moveLightbox(-1)">‹</button>
+    <img id="lightboxImage" src="" alt="갤러리 확대 이미지" />
+    <button class="lightbox-next" type="button" onclick="moveLightbox(1)">›</button>
+  </div>
+
+  <!-- 혼주 연락 팝업: 디테일은 나중에 확장 -->
+  <div class="modal" id="contactModal">
+    <div class="modal-dim" onclick="closeContactModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" type="button" onclick="closeContactModal()">×</button>
+      <h2>혼주에게 연락하기</h2>
+      <p class="modal-desc">연락처 상세 기능은 다음 단계에서 연결할 예정입니다.</p>
+    </div>
+  </div>
 
   <script src="data.js"></script>
   <script src="script.js"></script>
