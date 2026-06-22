@@ -232,18 +232,22 @@ p {
 }
 
 .calendar-date.wedding-day {
+  position: relative;
   color: var(--white);
   font-weight: 600;
+  z-index: 1;
 }
 
 .calendar-date.wedding-day::before {
-  content: "";
+  content: "♥";
   position: absolute;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--pink-dark);
+  left: 50%;
+  top: 50%;
   z-index: -1;
+  transform: translate(-50%, -50%);
+  color: var(--pink-dark);
+  font-size: 42px;
+  line-height: 1;
 }
 
 .wedding-time {
