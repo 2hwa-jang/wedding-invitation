@@ -2,8 +2,8 @@ const weddingData = {
   groomName: "민석",
   brideName: "이화",
 
-  groomFullName: "고민석",
-  brideFullName: "장이화",
+  groomFullName: "민석",
+  brideFullName: "이화",
 
   groomParents: "고재휘 · 노정란",
   brideParents: "장영기 · 이미진",
