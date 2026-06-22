@@ -144,13 +144,25 @@ function copyText(text) {
 
 function openLightbox(index) {
   currentLightboxIndex = index;
-  document.getElementById("lightboxImage").src = weddingData.galleryImages[currentLightboxIndex];
+
+  document.getElementById("lightboxImage").src =
+    weddingData.galleryImages[currentLightboxIndex];
+
   document.getElementById("lightbox").classList.add("active");
+  document.getElementById("lightbox").classList.remove("map-mode");
+  document.body.classList.add("no-scroll");
+}
+
+function openMapLightbox() {
+  document.getElementById("lightboxImage").src = "./images/map.jpg";
+  document.getElementById("lightbox").classList.add("active");
+  document.getElementById("lightbox").classList.add("map-mode");
   document.body.classList.add("no-scroll");
 }
 
 function closeLightbox() {
   document.getElementById("lightbox").classList.remove("active");
+  document.getElementById("lightbox").classList.remove("map-mode");
   document.body.classList.remove("no-scroll");
 }
 
