@@ -2,11 +2,11 @@ const weddingData = {
   groomName: "민석",
   brideName: "이화",
 
-  groomFullName: "민석",
-  brideFullName: "이화",
+  groomFullName: "고민석",
+  brideFullName: "장이화",
 
-  groomParents: "○○○ · ○○○",
-  brideParents: "○○○ · ○○○",
+  groomParents: "고재휘 · 노정란",
+  brideParents: "장영기 · 이미진",
 
   weddingDateISO: "2027-03-13T15:00:00+09:00",
   weddingDateText: "2027.03.13 SAT 15:00",
@@ -18,8 +18,8 @@ const weddingData = {
     소중한 걸음으로 축복해 주세요.
   `,
 
-  venueName: "웨딩 시그니처",
-  venueHall: "○○○홀",
+  venueName: "웨딩시그니처",
+  venueHall: "2층 트리니티홀",
   venueAddress: "서울 마포구 양화로 87",
 
   tmapLink: "https://www.tmap.co.kr/",
