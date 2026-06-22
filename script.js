@@ -2,8 +2,6 @@ let isGalleryExpanded = false;
 let currentLightboxIndex = 0;
 let touchStartX = 0;
 
-const mapImageSrc = "./images/map.jpg";
-
 function renderWeddingData() {
   document.getElementById("groomName").textContent = weddingData.groomName;
   document.getElementById("brideName").textContent = weddingData.brideName;
@@ -91,13 +89,11 @@ function renderGallery() {
     const item = document.createElement("button");
     item.className = "gallery-item";
     item.type = "button";
-
-    const actualIndex = weddingData.galleryImages.indexOf(src);
-    item.onclick = () => openLightbox(actualIndex);
+    item.onclick = () => openLightbox(index);
 
     const img = document.createElement("img");
     img.src = src;
-    img.alt = `웨딩 갤러리 ${actualIndex + 1}`;
+    img.alt = `웨딩 갤러리 ${index + 1}`;
     img.loading = "lazy";
 
     item.appendChild(img);
@@ -149,52 +145,31 @@ function copyText(text) {
 function openLightbox(index) {
   currentLightboxIndex = index;
 
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImage = document.getElementById("lightboxImage");
+  document.getElementById("lightboxImage").src =
+    weddingData.galleryImages[currentLightboxIndex];
 
-  lightboxImage.src = weddingData.galleryImages[currentLightboxIndex];
-  lightboxImage.alt = `웨딩 갤러리 확대 이미지 ${currentLightboxIndex + 1}`;
-
-  lightbox.classList.add("active");
-  lightbox.classList.remove("map-mode");
+  document.getElementById("lightbox").classList.add("active");
+  document.getElementById("lightbox").classList.remove("map-mode");
   document.body.classList.add("no-scroll");
 }
 
 function openMapLightbox() {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImage = document.getElementById("lightboxImage");
-
-  lightboxImage.src = mapImageSrc;
-  lightboxImage.alt = "웨딩홀 약도 확대 이미지";
-
-  lightbox.classList.add("active");
-  lightbox.classList.add("map-mode");
+  document.getElementById("lightboxImage").src = "./images/map.jpg";
+  document.getElementById("lightbox").classList.add("active");
+  document.getElementById("lightbox").classList.add("map-mode");
   document.body.classList.add("no-scroll");
 }
 
 function closeLightbox() {
-  const lightbox = document.getElementById("lightbox");
-
-  lightbox.classList.remove("active");
-  lightbox.classList.remove("map-mode");
-
-  document.getElementById("lightboxImage").src = "";
+  document.getElementById("lightbox").classList.remove("active");
+  document.getElementById("lightbox").classList.remove("map-mode");
   document.body.classList.remove("no-scroll");
 }
 
 function moveLightbox(direction) {
-  const lightbox = document.getElementById("lightbox");
-
-  if (lightbox.classList.contains("map-mode")) {
-    return;
-  }
-
   const total = weddingData.galleryImages.length;
   currentLightboxIndex = (currentLightboxIndex + direction + total) % total;
-
-  const lightboxImage = document.getElementById("lightboxImage");
-  lightboxImage.src = weddingData.galleryImages[currentLightboxIndex];
-  lightboxImage.alt = `웨딩 갤러리 확대 이미지 ${currentLightboxIndex + 1}`;
+  document.getElementById("lightboxImage").src = weddingData.galleryImages[currentLightboxIndex];
 }
 
 function openContactModal() {
@@ -220,10 +195,6 @@ function setupEvents() {
   });
 
   lightbox.addEventListener("touchend", (event) => {
-    if (lightbox.classList.contains("map-mode")) {
-      return;
-    }
-
     const touchEndX = event.changedTouches[0].clientX;
     const diff = touchStartX - touchEndX;
 
@@ -237,16 +208,9 @@ function setupEvents() {
   });
 
   document.addEventListener("keydown", (event) => {
-    const lightboxIsOpen = lightbox.classList.contains("active");
-    const mapIsOpen = lightbox.classList.contains("map-mode");
-
     if (event.key === "Escape") {
       closeLightbox();
       closeContactModal();
-    }
-
-    if (!lightboxIsOpen || mapIsOpen) {
-      return;
     }
 
     if (event.key === "ArrowRight") {
