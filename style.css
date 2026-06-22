@@ -88,9 +88,11 @@ p {
   letter-spacing: -0.04em;
 }
 
-.dot {
-  margin: 0 8px;
-  color: #c6aa99;
+.heart {
+  margin: 0 9px;
+  color: #d8aaa0;
+  font-size: 13px;
+  vertical-align: middle;
 }
 
 .message {
