@@ -154,22 +154,40 @@ function openLightbox(index) {
 }
 
 function openMapLightbox() {
-  document.getElementById("lightboxImage").src = "./images/map.jpg";
-  document.getElementById("lightbox").classList.add("active");
-  document.getElementById("lightbox").classList.add("map-mode");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+
+  lightboxImage.src = "./images/map.jpg";
+  lightboxImage.alt = "웨딩홀 약도 확대 이미지";
+
+  lightbox.classList.add("active");
+  lightbox.classList.add("map-mode");
   document.body.classList.add("no-scroll");
 }
 
 function closeLightbox() {
-  document.getElementById("lightbox").classList.remove("active");
-  document.getElementById("lightbox").classList.remove("map-mode");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+
+  lightbox.classList.remove("active");
+  lightbox.classList.remove("map-mode");
+  lightboxImage.src = "";
+
   document.body.classList.remove("no-scroll");
 }
 
 function moveLightbox(direction) {
+  const lightbox = document.getElementById("lightbox");
+
+  if (lightbox.classList.contains("map-mode")) {
+    return;
+  }
+
   const total = weddingData.galleryImages.length;
   currentLightboxIndex = (currentLightboxIndex + direction + total) % total;
-  document.getElementById("lightboxImage").src = weddingData.galleryImages[currentLightboxIndex];
+
+  document.getElementById("lightboxImage").src =
+    weddingData.galleryImages[currentLightboxIndex];
 }
 
 function openContactModal() {
@@ -195,9 +213,13 @@ function setupEvents() {
   });
 
   lightbox.addEventListener("touchend", (event) => {
+    if (lightbox.classList.contains("map-mode")) {
+      return;
+    }
+  
     const touchEndX = event.changedTouches[0].clientX;
     const diff = touchStartX - touchEndX;
-
+  
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
         moveLightbox(1);
