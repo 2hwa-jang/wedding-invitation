@@ -656,3 +656,26 @@ footer p {
   cursor: pointer;
 }
 
+.map-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.map-image-button img {
+  width: 100%;
+  display: block;
+}
+
+.lightbox.map-mode .lightbox-prev,
+.lightbox.map-mode .lightbox-next {
+  display: none;
+}
+
+.lightbox.map-mode img {
+  max-width: 94%;
+  max-height: 88vh;
+}
