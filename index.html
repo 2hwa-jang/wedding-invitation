@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>우리 결혼합니다</title>
+
+  <meta property="og:title" content="우리 결혼합니다" />
+  <meta property="og:description" content="소중한 분들을 초대합니다." />
+  <meta property="og:image" content="./images/main.jpg" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="invitation">
+    <section class="hero">
+      <div class="hero-image placeholder">
+        <span>MAIN PHOTO</span>
+      </div>
+
+      <div class="hero-text">
+        <p class="eyebrow">We are getting married</p>
+        <h1>
+          <span id="groomName">신랑</span>
+          <span class="dot">·</span>
+          <span id="brideName">신부</span>
+        </h1>
+        <p id="weddingDateText">2026.00.00 SAT 00:00</p>
+      </div>
+    </section>
+
+    <section class="message">
+      <h2>초대합니다</h2>
+      <p id="invitationMessage">
+        서로의 가장 좋은 친구가 되어<br />
+        평생을 함께 걸어가려 합니다.<br />
+        소중한 걸음으로 축복해 주세요.
+      </p>
+    </section>
+
+    <section class="info">
+      <h2>예식 안내</h2>
+      <p id="weddingDate">2026년 00월 00일 토요일 오후 00시</p>
+      <p id="venueName">예식장명</p>
+      <p id="venueAddress">예식장 주소</p>
+    </section>
+
+    <section class="buttons">
+      <a id="kakaoMapLink" href="#" target="_blank" rel="noopener">카카오맵</a>
+      <a id="naverMapLink" href="#" target="_blank" rel="noopener">네이버지도</a>
+    </section>
+
+    <section class="account">
+      <h2>마음 전하실 곳</h2>
+
+      <div class="account-card">
+        <p>신랑 측</p>
+        <strong id="groomAccount">은행명 000-0000-0000</strong>
+        <button type="button" onclick="copyText('groomAccount')">복사</button>
+      </div>
+
+      <div class="account-card">
+        <p>신부 측</p>
+        <strong id="brideAccount">은행명 000-0000-0000</strong>
+        <button type="button" onclick="copyText('brideAccount')">복사</button>
+      </div>
+    </section>
+
+    <section class="rsvp">
+      <h2>참석 여부 전달</h2>
+      <p>참석 가능 여부를 알려주시면 준비에 큰 도움이 됩니다.</p>
+      <a id="rsvpLink" href="#" target="_blank" rel="noopener">참석 여부 남기기</a>
+    </section>
+
+    <footer>
+      <p>Thank you</p>
+    </footer>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
